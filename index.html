@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    
+  </head>
+  <body>
+    <nav>
+      <div class="nav-center">
+        <div class="nav-header">
+          <img src="./logo.svg" class="logo" alt="logo" />
+          <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- links -->
+        <ul class="links">
+          <li>
+            <a href="#">home</a>
+          </li>
+          <li>
+            <a href="#">about</a>
+          </li>
+          <li>
+            <a href="#">contact</a>
+          </li>
+          <li>
+            <a href="./signup.html">Sign UP</a>
+          </li>
+        </ul>
+        <!-- social media -->
+        <ul class="social-icons">
+          <li>
+            <a href="https://www.facebook.com">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.behance.net">
+              <i class="fab fa-behance"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.sketch.com">
+              <i class="fab fa-sketch"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section class="flex">
+        <div class="sign-box">
+            <form id="signInform" action="">
+                <h1>Sign In</h1>
+                <div class="item">
+                    <i class="fa-solid fa-user icon"></i>
+                    <input type="text" id="username" placeholder="Username/andrewlID">
+                </div>
+                <p id="username-error" style="color:rgb(167, 9, 9);"></p> 
+                <div class="item">
+                    <i class="fa-solid fa-lock icon"></i>
+                    <input type="password" id="password" placeholder="Password"> 
+                </div>
+                <p id="password-error" style="color:rgb(167, 9, 9);"></p>
+                <br>
+                <h6 id="h6">Forget Password?</h6>
+                <button id="btn" type="button" onclick="validationForm()">CONTINUE</button> 
+                <h5 id="heading">Don't have an account? <span class="sign-up" id="signIn">Sign Up</span></h5>
+    
+            </form>
+        </div>  
+        
+    </section>
+   
+    <script>
+        function validationForm() {
+            document.getElementById('username-error').innerText = '';
+            document.getElementById('password-error').innerText = '';
+    
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            let valid = true;
+
+            if (username === '') {
+                document.getElementById('username-error').innerText = 'Username cannot be empty';
+                valid = false;
+            } else if (!username.includes('@') || !username.includes('.com')) {
+                document.getElementById('username-error').innerText = 'Username must contain "@" and ".com"';
+                valid = false; 
+            }
+    
+
+            if (password === '') {
+                document.getElementById('password-error').innerText = 'Password cannot be empty';
+                valid = false;
+            } else if (password.length !== 6) {
+                document.getElementById('password-error').innerText = 'Password must be exactly 6 characters long';
+                valid = false;
+            }
+            if (valid) {
+                alert('Form is valid');
+            }
+        }
+    </script>
+    
+    <script src="./script.js"></script>
+  </body>
+</html>
